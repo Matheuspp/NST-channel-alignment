@@ -3,12 +3,9 @@ implementation of a neural style transfer network for channel alignment in multi
 
 ## Setup
 
-install git and git-lfs
-
-install ananconda and create a new enviroment
-
-install all dependencies in requirements.txt
-
+install git and git-lfs\
+install ananconda and create a new enviroment\
+install all dependencies in requirements.txt\
 
 Run the following command:
 ``` 
