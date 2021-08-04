@@ -170,7 +170,7 @@ def run_style_transfer(cnn, normalization_mean, normalization_std,
     
     return input_img, style_loss_list, content_loss_list
 
-def run(data_path, save_folder, grid_params=None):
+def train(data_path, save_folder, grid_params=None):
 
     files = sorted(list(pathlib.Path(data_path).glob('*.tif')))
     batches = [files[i:i+5] for i in range(0, len(files), 5)]
@@ -216,4 +216,4 @@ def run(data_path, save_folder, grid_params=None):
                          save_path=f'{save_folder}', original=True)   
 
 if __name__ == '__main__':
-    run('./data/soybean', './experiments', grid_params=[[100], [1.0]])
+    train('./data/soybean', './experiments', grid_params=[[100], [1.0]])
