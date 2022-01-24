@@ -174,7 +174,7 @@ def train(data_path, save_folder, grid_params=None):
 
     files = sorted(list(pathlib.Path(data_path).glob('*.tif')))
     batches = [files[i:i+5] for i in range(0, len(files), 5)]
-    pathlib.Path(f'{save_folder}').mkdir(exist_ok=True)
+    pathlib.Path(f'{save_folder}').mkdir(parents=True, exist_ok=True)
 
     for steps in grid_params[0]:
         for lr in grid_params[1]:
@@ -204,6 +204,10 @@ def train(data_path, save_folder, grid_params=None):
                     # ### save generated styles
                     save_samples(unloader, output, title=f'output_{channel.stem}',
                                  save_path=f'{save_folder}/sample_result_{steps}_{lr}')
+                    # ### save original stacked images
+                    if steps == grid_params[0][0]:
+                        save_samples(unloader, style_img, title=f'{channel.stem}',
+                                     save_path=f'{save_folder}', original=True)
 
                 save_samples(unloader, content_img, title=f'output_{imgs[1].stem}',
                        save_path=f'{save_folder}/sample_result_{steps}_{lr}')
@@ -216,4 +220,7 @@ def train(data_path, save_folder, grid_params=None):
                          save_path=f'{save_folder}', original=True)   
 
 if __name__ == '__main__':
-    train('./data/soybean', './experiments', grid_params=[[100], [1.0]])
+    lr_list = np.arange(0.001, 0.01, 0.001)
+    iter_list = [100, 2000, 3000]
+    save_folder = './experiments/search'
+    train('./data/soybean', save_folder, grid_params=[iter_list, lr_list])

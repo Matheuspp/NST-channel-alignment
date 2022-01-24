@@ -28,8 +28,8 @@ def normalize(image, reverse=False):
     return norm_img*255
 
 def image_loader(image_name, loader, device):
+    # ### load images and apply transform
     image = Image.open(image_name)    
-    pix = np.array(image)
     pix = normalize(image)
 
     pix_rgb = np.stack((pix,)*3, axis=-1).transpose((0, 1, 2))
