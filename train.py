@@ -37,7 +37,7 @@ torch.manual_seed(manualSeed)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # ### desired size of the output image
-imsize = 256 if torch.cuda.is_available() else 128  # use small size if no gpu
+imsize = 512 if torch.cuda.is_available() else 128  # use small size if no gpu
 
 # ### loaders
 loader = transforms.Compose([transforms.Resize(imsize),  # scale imported image
@@ -221,6 +221,6 @@ def train(data_path, save_folder, grid_params=None):
 
 if __name__ == '__main__':
     lr_list = np.arange(0.001, 0.01, 0.001)
-    iter_list = [100, 2000, 3000]
+    iter_list = [1000, 2000, 3000]
     save_folder = './experiments/search'
     train('./data/soybean', save_folder, grid_params=[iter_list, lr_list])
