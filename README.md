@@ -96,6 +96,7 @@ If you use this data or code in academic research, please cite the following pap
 
 Matheus Vieira da Silva, Leandro H.F.P. Silva, Jocival Dantas Dias Junior, Mauricio Cunha Escarpinati, André Ricardo Backes, João Fernando Mari, Generating synthetic multispectral images using neural style transfer: A study with application in channel alignment, Computers and Electronics in Agriculture (2023).
 
+```
 @article{DASILVA2023107668,
 title = {Generating synthetic multispectral images using neural style transfer: A study with application in channel alignment},
 journal = {Computers and Electronics in Agriculture},
@@ -108,5 +109,5 @@ url = {https://www.sciencedirect.com/science/article/pii/S016816992300056X},
 author = {Matheus Vieira {da Silva} and Leandro H.F.P. Silva and Jocival Dantas Dias Junior and Mauricio Cunha Escarpinati and André Ricardo Backes and João Fernando Mari},
 keywords = {Neural style transfer, Convolutional neural networks, Multispectral images, Channel alignment, Unmanned aerial vehicles}
 }
-
+```
 
